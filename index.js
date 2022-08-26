@@ -1,10 +1,12 @@
 const express = require('express');
 const expressHandlebars = require('express-handlebars');
-const fortune = require('./lib/fortune');
+// const fortune = require('./lib/fortune');
 const handlers = require('./lib/handlers');
+const bodyparser = require('body-parser');
 
 const app = express();
 
+app.use(bodyparser.urlencoded({ extended: false }));
 app.engine('handlebars', expressHandlebars.engine({
     defaultLayout: 'main',
 }))
